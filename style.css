@@ -1,0 +1,211 @@
+:root {
+    --textstylecolor: rgb(72, 186, 206);
+    --textcolor: white;
+    --delcolor: rgb(196, 193, 12);
+    --textbg: orange;
+    --bg: black;
+    --linear: darkred;
+    --linear2: purple;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #fff;
+}
+
+/*Icon*/
+#notepad {
+    font-size: 50px;
+}
+
+/* For Writing Task */
+header {
+    padding: 2rem 1rem;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+header h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background-image: linear-gradient(to right, yellow, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+header h1:hover{
+    background-image: linear-gradient(to right, purple, orange);
+    transition: 1.5s;
+}
+
+#task_form {
+    display: flex;
+}
+input, button {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+#task_input {
+    flex: 1 1 0%;
+    background-color: purple;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    color: var(--textcolor);
+    font-size: 1.25rem;
+}
+
+
+#task_submit {
+    width: 4rem;
+    box-shadow: 0 0 5px darkblue, 0 0 25px darkblue;
+    font-size: 1.25rem;
+    font-weight: 900;
+    background-image: linear-gradient(to right, var(--linear), var(--linear2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    transition: 0.4s;
+}
+#task_submit:hover {
+    letter-spacing: 2px;
+    box-shadow: 0 0 5px darkblue, 0 0 25px darkblue, 0 0 50px darkblue, 0 0 100px darkblue, 0 0 200px darkblue;
+    
+}
+#task_submit:active {
+    transition: 0.1s;
+    box-shadow: 0 0 5px green, 0 0 25px green, 0 0 50px green, 0 0 100px green, 0 0 200px green;
+}
+
+/* For Task Lists */
+main {
+    flex: 1 1 0%;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.task_list {
+    padding: 1rem;
+}
+.task_list h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--textbg);
+    margin-bottom: 1rem;
+    background-image: linear-gradient(90deg, red,darkviolet);
+    background-size: 0% 5px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    transition: background-size 300ms ease;
+}
+.task_list h2:hover{
+    background-size: 100% 5px;
+}
+
+#task .task {
+    display: flex;
+    justify-content: space-between;
+    background-image: linear-gradient(to right, var(--linear), var(--linear2));
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+#task .task .content {
+    flex: 1 1 0%;
+}
+#task .task .content .text {
+    color: goldenrod;
+    font-size: 1.125rem;
+    width: 100%;
+    display: block;
+    transition: 0.4s;
+}
+#task .task .content .text:not(:read-only) {
+    color: var(--textcolor);
+}
+#task .task .action {
+    display: flex;
+    margin: 0 -0.5rem;
+}
+.task .action button {
+    color: rgb(54, 212, 54);
+    cursor: pointer;
+    margin: 0 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    transition: 0.4s;
+}
+
+.task .action .edit{
+    background-image: linear-gradient(90deg, black,darkviolet);
+    background-size: 0% 3px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    transition: background-size 300ms ease;
+}
+.task .action .delete{
+    color: var(--delcolor);
+    background-image: linear-gradient(90deg, darkviolet,black);
+    background-size: 0% 3px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    transition: background-size 300ms ease;
+}
+
+.task .action button:hover{
+    background-size: 100% 3px;
+}
+.task .action button:active{
+    opacity: 0.6;
+}
+
+/* Responsiveness */
+@media (max-width:464px) {
+    header h1 {
+        font-size: 2rem;
+    }
+}
+@media (max-width:395px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    #task_input {
+        flex: 1 1 0%;
+        font-size: 1rem;
+    }
+    #task_submit{
+        width: 3rem;
+        height: 50px;
+        box-shadow: 0 0 5px darkblue, 0 0 25px darkblue;
+        font-size: 1rem;
+        font-weight: 900;
+    }
+    .task_list h2 {
+        font-size: 2rem;
+    }
+    #task .task {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        border-radius: 1rem;
+        margin-bottom: 1rem;
+    }
+    .task .action button{
+        font-size: 1rem;
+    }
+    #notepad {
+        font-size: 30px;
+    }
+}
